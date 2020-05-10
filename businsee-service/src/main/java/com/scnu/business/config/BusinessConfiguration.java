@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableDubbo(scanBasePackages="com.scnu.order.service")
-@EnableNacosConfig(globalProperties = @NacosProperties(serverAddr = "${nacos.config.server-address}")) // 激活 Nacos 配置
-@NacosPropertySource(dataId = "${nacos.config.data-id}")
+@EnableNacosConfig(globalProperties = @NacosProperties(serverAddr = "${nacos.config.server-address}", enableRemoteSyncConfig = "true")) // 激活 Nacos 配置
+@NacosPropertySource(dataId = "${nacos.config.data-id}", autoRefreshed = true)
 public class BusinessConfiguration {
 }
