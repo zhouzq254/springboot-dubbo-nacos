@@ -47,9 +47,23 @@
     <build>
         <finalName>order-service-1.0.0</finalName>
         <plugins>
-            <plugin>
+            <!--spring-boot-maven.plugin打出来的是fat jar，里面包含了依赖的jar,是可以直接运行的
+           springboot应用
+           <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>*.yml</exclude>
+                        <exclude>*.xml</exclude>
+                        <exculde>*.properties</exculde>
+                    </excludes>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
